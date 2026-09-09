@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="EB Roblox — Portal da experiência fictícia no Roblox.">
+<meta name="theme-color" content="#07100a">
+<title>EB Roblox — Portal</title>
+<style>
+:root{--bg:#050907;--panel:#0b130e;--line:#25352a;--green:#78b83f;--text:#eef4ef;--muted:#8d9c91}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% 10%,#19321e 0,#07100a 35%,#050907 70%);color:var(--text);font-family:Arial,sans-serif;min-height:100vh}
+.wrap{max-width:1050px;margin:auto;padding:22px 18px 45px}.top{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:12px 0 18px;background:#050907ee;backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:1.5px}.logo{width:45px;height:45px;border:1px solid #4c773f;border-radius:50%;display:grid;place-items:center;background:#0c1b10;font-size:21px;box-shadow:0 0 24px #18351d}.green{color:var(--green)}.badge{font-size:11px;color:#9aaa9d;border:1px solid var(--line);padding:7px 10px;border-radius:8px}
+.hero{text-align:center;padding:82px 10px 60px}.crest{width:94px;height:94px;margin:auto;border:1px solid #527d47;border-radius:50%;display:grid;place-items:center;background:#0b1a0f;box-shadow:0 0 55px #17391e;font-size:40px}
+h1{font-size:clamp(40px,8vw,72px);margin:22px 0 8px;letter-spacing:2px}.hero p{color:var(--muted);max-width:650px;margin:0 auto 28px;line-height:1.7}
+.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.btn{display:inline-block;border:1px solid #3c5c36;background:#101a12;color:white;padding:13px 20px;border-radius:9px;text-decoration:none;font-weight:850;transition:.2s}.btn:hover{transform:translateY(-2px);border-color:#a5d66b;box-shadow:0 8px 25px #0008}.btn.primary{background:var(--green);color:#071006;border-color:var(--green)}
+.panel{background:#0b130ee8;border:1px solid var(--line);border-radius:15px;padding:25px;margin-top:18px;box-shadow:0 15px 40px #0005}.panel h2{margin:0 0 8px}.sub{color:var(--muted);margin:0 0 20px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{border:1px solid var(--line);background:#09110c;border-radius:11px;padding:18px;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#42683b}.card b{display:block;margin-bottom:7px}.card span{font-size:13px;color:var(--muted);line-height:1.5}
+.rankbox{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.rank{display:flex;align-items:center;justify-content:space-between;padding:13px 14px;border:1px solid var(--line);border-radius:9px;background:#09110c}.rank small{color:var(--muted)}
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.rule{border:1px solid var(--line);padding:15px;border-radius:10px}.rule b{display:block;margin-bottom:5px}.rule span{color:var(--muted);font-size:13px;line-height:1.5}
+.notice{border-left:3px solid var(--green);padding:12px 14px;background:#0a160d;color:#aab8ad;border-radius:6px;margin-top:14px;font-size:13px;line-height:1.5}
+footer{text-align:center;color:#68756b;font-size:12px;padding:30px 0 0;line-height:1.7}
+@media(max-width:700px){.grid,.rules{grid-template-columns:1fr 1fr}.top .badge{display:none}}
+@media(max-width:470px){.grid,.rules,.rankbox{grid-template-columns:1fr}.hero{padding-top:55px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><div class="logo">🇧🇷</div> EB <span class="green">ROBLOX</span></div><div class="badge">PORTAL • v1.0</div></header>
+<main>
+<section class="hero" id="inicio"><div class="crest">★</div><h1>EB <span class="green">ROBLOX</span></h1><p>Portal central da experiência militar fictícia no Roblox. Consulte treinamentos, progressão, patentes, regras e informações da comunidade.</p><div class="buttons"><a class="btn primary" href="#jogar">🎮 JOGAR NO ROBLOX</a><a class="btn" href="#informacoes">INFORMAÇÕES</a></div></section>
+<section class="panel" id="informacoes"><h2>🏢 Quartel-General</h2><p class="sub">Central de informações da experiência.</p><div class="grid">
+<div class="card"><b>👤 Perfil</b><span>Nome, patente e progresso do jogador.</span></div><div class="card"><b>🎓 Recrutas</b><span>Formação inicial com parkour e checkpoints.</span></div><div class="card"><b>🪖 Militares</b><span>Treinamentos avançados para progressão.</span></div><div class="card"><b>🎖️ Patentes</b><span>Progressão conquistada através dos treinamentos.</span></div><div class="card"><b>📜 Regras</b><span>Normas de convivência e funcionamento.</span></div><div class="card"><b>📢 Notícias</b><span>Atualizações, eventos e comunicados.</span></div>
+</div></section>
+<section class="panel" id="treinamentos"><h2>🎓 Centro de Treinamentos</h2><p class="sub">Progressão baseada na conclusão das etapas da experiência.</p><div class="grid">
+<div class="card"><b>🟢 Formação de Recrutas</b><span>Objetivo: concluir a formação inicial e avançar de Recruta para Soldado.</span></div><div class="card"><b>🎖️ Treinamento Militar</b><span>Etapas progressivas destinadas aos jogadores que já avançaram na formação.</span></div><div class="card"><b>📍 Checkpoints</b><span>Sequência de 01 a 05 para acompanhar o progresso.</span></div>
+</div><div class="notice">As patentes são elementos fictícios da experiência Roblox. Promoções devem seguir os critérios definidos pelo jogo.</div></section>
+<section class="panel" id="patentes"><h2>🎖️ Hierarquia</h2><p class="sub">18 níveis de progressão planejados.</p><div class="rankbox">
+<div class="rank"><b>Recruta</b><small>01</small></div><div class="rank"><b>Soldado</b><small>02</small></div><div class="rank"><b>Cabo</b><small>03</small></div><div class="rank"><b>3º Sargento</b><small>04</small></div><div class="rank"><b>2º Sargento</b><small>05</small></div><div class="rank"><b>1º Sargento</b><small>06</small></div><div class="rank"><b>Subtenente</b><small>07</small></div><div class="rank"><b>Aspirante</b><small>08</small></div><div class="rank"><b>2º Tenente</b><small>09</small></div><div class="rank"><b>1º Tenente</b><small>10</small></div><div class="rank"><b>Capitão</b><small>11</small></div><div class="rank"><b>Major</b><small>12</small></div><div class="rank"><b>Tenente-Coronel</b><small>13</small></div><div class="rank"><b>Coronel</b><small>14</small></div><div class="rank"><b>General de Brigada</b><small>15</small></div><div class="rank"><b>General de Divisão</b><small>16</small></div><div class="rank"><b>General de Exército</b><small>17</small></div><div class="rank"><b>Comandante-Geral</b><small>18</small></div>
+</div></section>
+<section class="panel" id="regras"><h2>📜 Regras</h2><p class="sub">Para manter a experiência organizada e divertida.</p><div class="rules">
+<div class="rule"><b>🤝 Respeito</b><span>Respeite todos os jogadores e evite atitudes ofensivas.</span></div><div class="rule"><b>⚖️ Fair Play</b><span>Não tente burlar sistemas de treino, progresso ou promoção.</span></div><div class="rule"><b>📢 Comunicação</b><span>Use os canais corretos e mantenha uma comunicação adequada.</span></div><div class="rule"><b>🎖️ Promoções justas</b><span>Progressões devem seguir os critérios definidos pela experiência.</span></div>
+</div><div class="notice">Cargos e patentes apresentados aqui são fictícios e existem somente dentro da experiência Roblox.</div></section>
+<section class="panel" id="jogar" style="text-align:center"><h2>🎮 Pronto para entrar?</h2><p class="sub">Acesse a experiência e comece sua progressão.</p><div class="buttons"><a class="btn primary" id="robloxBtn" href="#">🎮 JOGAR NO ROBLOX</a><a class="btn" href="#inicio">↑ VOLTAR AO TOPO</a></div><div class="notice">Para ativar o botão, substitua o endereço no código pelo link público da sua experiência Roblox.</div></section>
+</main>
+<footer>EB Roblox • Portal da experiência • Desenvolvido para um projeto fictício no Roblox.<br>Este site não representa nem é um site oficial de uma força militar real.</footer>
+</div>
+<script>
+const ROBLOX_GAME_URL = "";
+const btn=document.getElementById("robloxBtn");
+if(ROBLOX_GAME_URL) btn.href=ROBLOX_GAME_URL;
+else btn.onclick=e=>{e.preventDefault();alert("O link do seu jogo Roblox ainda não foi configurado.");};
+</script>
+</body>
+</html>
