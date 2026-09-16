@@ -63,4 +63,27 @@ function renderTable(){document.getElementById("rankTable").innerHTML=ranks.map(
 function renderHistory(){document.getElementById("history").innerHTML=history.length?history.map(h=>`<div><b>${h.type}</b> — ${h.player}<br><span class="mut">${h.from||""} → ${h.to||""} • ${h.date} • por ${h.by}</span>${h.reason?`<br><small>Motivo: ${h.reason}</small>`:""}</div>`).join(""):'<p class="mut">Nenhum registro ainda.</p>'}
 function saveLogin(){let n=document.getElementById("loginName").value.trim(),id=document.getElementById("loginId").value.trim();if(!n||!/^\d+$/.test(id)){document.getElementById("loginMsg").innerHTML='<div class="error">Informe nome e User ID válidos.</div>';return}localStorage.setItem("ebr_account",JSON.stringify({n,id}));document.getElementById("profileId").textContent=id;document.getElementById("topName").textContent=n;document.getElementById("profileName").textContent=n;document.getElementById("loginMsg").innerHTML='<div class="success">✅ Conta vinculada localmente.</div>'}
 renderTable();renderPlayers();selectP(selected.id);let acc=JSON.parse(localStorage.getItem("ebr_account")||"null");if(acc){topName.textContent=acc.n;profileName.textContent=acc.n;profileId.textContent=acc.id;loginName.value=acc.n;loginId.value=acc.id}
+
+// === EBR API ===
+const API_URL = 'https://affc9ed9-0e45-41c9-9ba1-f4387154dc17-00-1utn7v6e84wf4.kirk.replit.dev';
+
+(async () => {
+  try {
+    const r = await fetch(API_URL + '/api/health');
+    const j = await r.json();
+    console.log('✅ EBR API conectada:', j);
+    // Mostra um aviso visível na tela
+    const aviso = document.createElement('div');
+    aviso.style.cssText = 'position:fixed;bottom:10px;left:10px;background:#00ff88;color:#000;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:bold;z-index:9999';
+    aviso.textContent = '✅ API conectada';
+    document.body.appendChild(aviso);
+    setTimeout(() => aviso.remove(), 5000);
+  } catch (e) {
+    console.error('❌ Erro API:', e);
+    const aviso = document.createElement('div');
+    aviso.style.cssText = 'position:fixed;bottom:10px;left:10px;background:#ff3333;color:#fff;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:bold;z-index:9999';
+    aviso.textContent = '❌ Erro API: ' + e.message;
+    document.body.appendChild(aviso);
+  }
+})();
 </script></body></html>
