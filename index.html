@@ -42,6 +42,7 @@ footer{border-top:1px solid var(--line);padding:20px;color:#7f9491;text-align:ce
 <div class="modal" id="modal"><div class="modalbox"><h2>Confirmar promoção?</h2><p id="confirmText" class="mut"></p><div class="actions"><button class="cancel" onclick="closeModal()">Cancelar</button><button class="primary" onclick="doPromo()">Confirmar</button></div></div></div>
 <script>
 const ranks=[["Recruta",1],["Soldado",2],["Cabo",4],["3º Sargento",6],["2º Sargento",8],["1º Sargento",12],["Subtenente",18],["Aspirante",24],["2º Tenente",24],["1º Tenente",36],["Capitão",48],["Major",48],["Tenente-Coronel",72],["Coronel",72],["General de Brigada",96],["General de Divisão",120],["General de Exército",144],["Comandante-Geral",168]];
+const API_URL = 'https://affc9ed9-0e45-41c9-9ba1-f4387154dc17-00-1utn7v6e84wf4.kirk.replit.dev';
 let players=JSON.parse(localStorage.getItem("ebr_players")||"null")||[
 {name:"xBruno_EBR",id:"123456789",rank:"2º Sargento",days:12,last:"10/09/2025",train:"8/10",e:"🎖️"},
 {name:"kaua_tropa",id:"987654321",rank:"Cabo",days:21,last:"01/09/2025",train:"7/10",e:"👨🏻"},
@@ -68,10 +69,6 @@ let players=JSON.parse(localStorage.getItem("ebr_players")||"null")||[
     }
   }catch(e){console.warn('Erro ao carregar players da API:',e)}
 })();
-{name:"xBruno_EBR",id:"123456789",rank:"2º Sargento",days:12,last:"10/09/2025",train:"8/10",e:"🪖"},
-{name:"kaua_tropa",id:"987654321",rank:"Cabo",days:21,last:"01/09/2025",train:"7/10",e:"👤"},
-{name:"davi_militar",id:"456123789",rank:"Soldado",days:8,last:"05/09/2025",train:"4/10",e:"👨🏻"},
-{name:"igor_eb",id:"741852963",rank:"3º Sargento",days:30,last:"20/08/2025",train:"9/10",e:"🧑🏽"}];
 let selected=players[0],history=JSON.parse(localStorage.getItem("ebr_history")||"[]");
 function save(){localStorage.setItem("ebr_players",JSON.stringify(players));localStorage.setItem("ebr_history",JSON.stringify(history))}
 function go(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll("nav a").forEach(x=>x.classList.toggle("active",x.dataset.screen===id));if(id==="promover"){renderPlayers();fillNext()}if(id==="historico")renderHistory()}
@@ -90,7 +87,6 @@ function saveLogin(){let n=document.getElementById("loginName").value.trim(),id=
 renderTable();renderPlayers();selectP(selected.id);let acc=JSON.parse(localStorage.getItem("ebr_account")||"null");if(acc){topName.textContent=acc.n;profileName.textContent=acc.n;profileId.textContent=acc.id;loginName.value=acc.n;loginId.value=acc.id}
 
 // === EBR API ===
-const API_URL = 'https://affc9ed9-0e45-41c9-9ba1-f4387154dc17-00-1utn7v6e84wf4.kirk.replit.dev';
 
 (async () => {
   try {
