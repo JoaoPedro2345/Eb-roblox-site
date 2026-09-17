@@ -43,6 +43,31 @@ footer{border-top:1px solid var(--line);padding:20px;color:#7f9491;text-align:ce
 <script>
 const ranks=[["Recruta",1],["Soldado",2],["Cabo",4],["3º Sargento",6],["2º Sargento",8],["1º Sargento",12],["Subtenente",18],["Aspirante",24],["2º Tenente",24],["1º Tenente",36],["Capitão",48],["Major",48],["Tenente-Coronel",72],["Coronel",72],["General de Brigada",96],["General de Divisão",120],["General de Exército",144],["Comandante-Geral",168]];
 let players=JSON.parse(localStorage.getItem("ebr_players")||"null")||[
+{name:"xBruno_EBR",id:"123456789",rank:"2º Sargento",days:12,last:"10/09/2025",train:"8/10",e:"🎖️"},
+{name:"kaua_tropa",id:"987654321",rank:"Cabo",days:21,last:"01/09/2025",train:"7/10",e:"👨🏻"},
+{name:"davi_militar",id:"456123789",rank:"Soldado",days:8,last:"05/09/2025",train:"4/10",e:"🧑🏽"},
+{name:"igor_eb",id:"741852963",rank:"3º Sargento",days:30,last:"20/08/2025",train:"9/10",e:"🎖️"}];
+// === CARREGA DA API ===
+(async()=>{
+  try{
+    const r=await fetch(API_URL+'/api/players');
+    const lista=await r.json();
+    if(Array.isArray(lista)&&lista.length){
+      players=lista.map(p=>({
+        name:p.name,
+        id:p.user_id||p.id,
+        rank:p.rank,
+        days:0,
+        last:p.updated_at?new Date(p.updated_at).toLocaleDateString('pt-BR'):'—',
+        train:(p.progress||0)+'/10',
+        e:"🎖️"
+      }));
+      localStorage.setItem("ebr_players",JSON.stringify(players));
+      if(typeof renderPlayers==="function")renderPlayers();
+      if(typeof selectP==="function"&&players[0])selectP(players[0].id);
+    }
+  }catch(e){console.warn('Erro ao carregar players da API:',e)}
+})();
 {name:"xBruno_EBR",id:"123456789",rank:"2º Sargento",days:12,last:"10/09/2025",train:"8/10",e:"🪖"},
 {name:"kaua_tropa",id:"987654321",rank:"Cabo",days:21,last:"01/09/2025",train:"7/10",e:"👤"},
 {name:"davi_militar",id:"456123789",rank:"Soldado",days:8,last:"05/09/2025",train:"4/10",e:"👨🏻"},
